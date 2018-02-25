@@ -1,29 +1,23 @@
 {
   "name": "karma-coverage-test",
-  "version": "1.0.0",
-  "description": "Testing karma-coverage",
-  "scripts": {
-    "clean": "rm -fr build && mkdir build",
-    "build": "tsc",
-    "test": "karma start karma.conf.js --single-run",
-    "lint": "tslint --project ."
-  },
+  "version": "1.1.0",
+  "description": "Testing gulp-typescript/gulp-ng-annotate vs. vanilla tsc when it comes to remapped coverage info",
+  "scripts": {},
   "devDependencies": {
-    "@types/angular": "^1.6.43",
-    "@types/angular-mocks": "^1.5.11",
+    "@types/angular": "1.6.43",
+    "@types/angular-mocks": "1.5.11",
     "@types/jasmine": "2.8.6",
-    "angular": "^1.6.9",
-    "angular-mocks": "^1.6.9",
-    "child_process": "^1.0.2",
+    "angular": "1.6.9",
+    "angular-mocks": "1.6.9",
+    "child_process": "1.0.2",
     "del": "3.0.0",
     "gulp": "3.9.1",
     "gulp-ng-annotate": "2.1.0",
     "gulp-sourcemaps": "2.6.4",
-    "gulp-typescript": "^4.0.1",
+    "gulp-typescript": "4.0.1",
     "jasmine-core": "2.7.0",
     "karma": "1.5.0",
     "karma-coverage": "1.1.1",
-    "karma-dojo-wrapper": "0.0.2",
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
     "karma-junit-reporter": "1.2.0",
@@ -31,8 +25,8 @@
     "karma-remap-istanbul": "0.6.0",
     "karma-requirejs": "1.1.0",
     "phantomjs-prebuilt": "2.1.16",
-    "run-sequence": "^2.2.1",
-    "typescript": "2.6.2"
+    "run-sequence": "2.2.1",
+    "typescript": "2.7.2"
   },
   "dependencies": {
     "requirejs": "2.3.5"

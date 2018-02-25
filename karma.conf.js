@@ -1,4 +1,4 @@
-module.exports = function (config) {
+module.exports = function(config) {
     'use strict';
     
     config.set({
@@ -37,7 +37,6 @@ module.exports = function (config) {
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['dots', 'junit', 'coverage', 'karma-remap-istanbul'],
-        //reporters: ['dots', 'junit','html'],
 
         // junit configuration
         junitReporter: {

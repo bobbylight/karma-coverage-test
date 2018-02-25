@@ -1,4 +1,6 @@
 build/
 junit/
+coverage/
 node_modules/
+.idea/
 *.iml

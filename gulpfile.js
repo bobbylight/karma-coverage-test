@@ -10,18 +10,6 @@ const exec = require('child_process').execSync;
 const path = require('path');
 
 gulp.task('test', (done) => {
-
-    const onComplete = (code) => {
-        if (code === 1) {
-            console.log('Unit test failures, exiting process');
-            done('Unit test failures');
-        }
-        else {
-            console.log('Unit tests passed');
-            done();
-        }
-    };
-
     new KarmaServer({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
@@ -29,7 +17,7 @@ gulp.task('test', (done) => {
 });
 
 gulp.task('clean', () => {
-    return del([ 'build/', 'coverage/' ], { force: true });
+    return del([ 'build/', 'junit/', 'coverage/' ], { force: true });
 });
 
 gulp.task('compile-with-tsc', () => {
@@ -52,7 +40,6 @@ gulp.task('compile-with-gulp-typescript', () => {
         .pipe(sourcemaps.init())
         .pipe(tsconfig());
 
-    // All we care about is the .js and map files, not the *.d.ts files
     return tsResult.js
         .pipe(ngAnnotate({ single_quotes: true })).on('error', (error) => {
             // ng-annotate will fail on compilation errors, and cause gulp to exit; we need to catch this and
@@ -67,5 +54,5 @@ gulp.task('compile-with-gulp-typescript', () => {
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build-gulp-typescript', () => { runSequence('clean', 'compile-with-gulp-typescript') });
-gulp.task('build-tsc', () => { runSequence('clean', 'compile-with-tsc') });
+gulp.task('build-gulp-typescript', () => { runSequence('clean', 'compile-with-gulp-typescript', 'test') });
+gulp.task('build-tsc', () => { runSequence('clean', 'compile-with-tsc', 'test') });

@@ -1,21 +1,17 @@
-var tests = [];
+const tests = [];
 
-Object.keys(window.__karma__.files).forEach(function (file) {
-    console.log('>>> >>> ' + file);
+Object.keys(window.__karma__.files).forEach(function(file) {
     if (/\.spec\.js$/.test(file)) {
         tests.push(file);
     }
 });
 
-console.log('Tests: ' + JSON.stringify(tests));
-
 angular.module('testMod', []);
 
 require([
-    'app/test',
-    'app/util'
-], function () {
-    console.log('>>> >>> stuff required');
+    'app/test.controller',
+    'app/util.service'
+], function() {
 });
 
 requirejs.config({
